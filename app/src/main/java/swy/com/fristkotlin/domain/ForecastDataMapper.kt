@@ -23,8 +23,10 @@ public class ForecastDataMapper {
          * forecast.temp.max.toInt() ForecastResult.Temperature的最高温度max转为high(float-->int)
          * forecast.temp.min.toInt() ForecastResult.Temperature的最高温度min转为low(float-->int)
          */
-        return ModelForecast(convertDate(forecast.dt), forecast.weather[0].description,forecast.weather[0].main, forecast.temp.max.toInt(), forecast.temp.min.toInt())
+        return ModelForecast(convertDate(forecast.dt), forecast.weather[0].description,getIconUrl(forecast.weather[0].icon), forecast.temp.max.toInt(), forecast.temp.min.toInt())
     }
+
+    private fun getIconUrl( iconUrl :  String) : String="http://openweathermap.org/img/w/$iconUrl.png"
 
     private fun convertDate(date: Long): String {
         val df = DateFormat.getDateInstance(DateFormat.MEDIUM, Locale.getDefault())

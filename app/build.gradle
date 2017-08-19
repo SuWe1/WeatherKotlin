@@ -47,6 +47,8 @@ dependencies {
 
     // Anko lib
     implementation "org.jetbrains.anko:anko-commons:$ankoLibVersion"
+    implementation "org.jetbrains.anko:anko-sqlite:$ankoLibVersion"
+    implementation "org.jetbrains.anko:anko-coroutines:$ankoLibVersion"
 
     implementation 'com.android.support:appcompat-v7:26.0.0-beta1'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
