@@ -4,10 +4,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import com.bumptech.glide.Glide
-import org.jetbrains.anko.find
+import kotlinx.android.synthetic.main.item_forecast.view.*
 import swy.com.fristkotlin.R
 import swy.com.fristkotlin.domain.Domain
 import swy.com.fristkotlin.extensions.ctx
@@ -31,20 +29,20 @@ class ForecastListAdapter(val  weekForecast : Domain.ForecastList,val listener :
 
     class ViewHolder(val view : View,val clickListener: (Domain.Forecast) -> Unit) : RecyclerView.ViewHolder(view){
 
-        private val iconView : ImageView
-        private val dateView : TextView
-        private val descriptionView : TextView
-        private val maxTempetatureView : TextView
-        private val minTempetatureView : TextView
-
-        //初始化
-        init{
-            iconView=view.find(R.id.icon)
-            dateView=view.findViewById(R.id.date)
-            descriptionView=view.find(R.id.description)
-            maxTempetatureView=view.find(R.id.maxTemperature)
-            minTempetatureView=view.find(R.id.minTemperature)
-        }
+//        private val iconView : ImageView
+//        private val dateView : TextView
+//        private val descriptionView : TextView
+//        private val maxTempetatureView : TextView
+//        private val minTempetatureView : TextView
+//
+//        //初始化
+//        init{
+//            iconView=view.find(R.id.icon)
+//            dateView=view.findViewById(R.id.date)
+//            descriptionView=view.find(R.id.description)
+//            maxTempetatureView=view.find(R.id.maxTemperature)
+//            minTempetatureView=view.find(R.id.minTemperature)
+//        }
 
 
         /**
@@ -56,11 +54,11 @@ class ForecastListAdapter(val  weekForecast : Domain.ForecastList,val listener :
          */
         fun  bindForecast(forecast :Domain.Forecast){
             with(forecast){
-                Glide.with(view.context).load(iconUrl).into(iconView)
-                dateView.text=description
-                descriptionView.text=description
-                maxTempetatureView.text= "${    high.toString() }"
-                minTempetatureView.text= "${    low.toString() }"
+                Glide.with(view.context).load(iconUrl).into(itemView.icon)
+                itemView.date.text=description
+                itemView.description.text=description
+                itemView.maxTemperature.text= "${    high.toString() }"
+                itemView.minTemperature.text= "${    low.toString() }"
                 itemView.setOnClickListener { clickListener(this) }
             }
         }

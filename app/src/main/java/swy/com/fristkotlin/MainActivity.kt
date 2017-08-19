@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 //        message.text="hello kotlin!"
 //        val forecastList=findViewById<RecyclerView>(R.id.forecast_list) as RecyclerView
-        forecast_list.layoutManager=LinearLayoutManager(this)
+        forecastList.layoutManager=LinearLayoutManager(this)
 
 //        doAsync {
 //            val result=RequestForecastCommand("94043").execute()
@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun updataUI(weekForecast : Domain.ForecastList){
         val  adapter=ForecastListAdapter(weekForecast){forecast -> toast(forecast.date) }
-        forecast_list.adapter=adapter
+        forecastList.adapter=adapter
     }
 
 //    fun  Context.toast(message : CharSequence ,duration : Int = Toast.LENGTH_LONG){
